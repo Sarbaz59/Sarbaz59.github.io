@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="jquery.min.js"></script>
+		<style type="text/css">
+		
+			body {
+				background-color:#333;
+			}
+			.input {
+				width:60vw;
+				border:none;
+				border:1px solid orange;
+				background-color:#222;
+				border-radius:10px;
+				position:absolute;
+				top:80px;
+				left:50%;
+				transform:translate(-50%);
+				color:gray;
+				padding:15px 0 15px 10px;
+				font-size:16px;
+				outline:none;
+			}
+			.input1 {
+				position:absolute;
+				top:160px;
+			}
+			.input2 {
+				position:absolute;
+				top:240px;
+				height:150px;
+			}
+			.btn{
+				position:absolute;
+				top:445px;
+				border:1px solid red;
+				color:white;
+			}
+			.btn:hover{
+				background-color:#111;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<!-- the form started here -->
+	
+		<form>
+			<input type="text" placeholder="Name" class="input" id="t1">
+			<input type="text" class="input1 input" placeholder="Subject" id="t2">
+			<textarea class="input input2" placeholder="Comment" id="t3"></textarea>
+		</form>
+		
+	<!-- the form ended here -->
+	
+		<button id="btn" class="input btn" href="server.php">Submit</button>
+		
+		<button id="bttn">alert</button>
+		
+	<!-- button ended here -->
+		
+		<script>
+		
+			$("#btn").click(function(){
+				var name = $("#t1").val();
+				var sub = $("#t2").val();
+				var comment = $("#t3").val();
+				$.ajax({
+					url: 'server.php',
+					type: 'POST',
+					data: {na:name , su:sub , co:comment},
+					error: function(){alert("fiald to send your comment");},
+					success: function(data){alert(data);}
+				});
+			});
+		</script>
+		
+	</body>
+</html>
