@@ -71,8 +71,8 @@
 					url : 'comment.php',
 					type : 'POST',
 					data : {na : name , co : comment},
-					error : function(){alert("failed to send comment")},
-					success : function(data){alert(data/*"Your comment successfuly sended"*/)}
+					error : function(){alert("failed to send comment");},
+					success : function(data){alert(data/*"Your comment successfuly sended"*/);}
 				});
 			});
 		
